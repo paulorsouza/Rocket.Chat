@@ -14,6 +14,11 @@ function timeAgo(time) {
 function directorySearch(config, cb) {
 	return Meteor.call('browseChannels', config, (err, results) => {
 		cb(results && results.length && results.map(result => {
+			console.log(result);
+			// const user = RocketChat.getFullUserData({
+			// 	userId: result._id
+			// });
+			console.log(result);
 			if (config.type === 'channels') {
 				return {
 					name: result.name,
@@ -28,7 +33,7 @@ function directorySearch(config, cb) {
 				return {
 					name: result.name,
 					username: result.username,
-					createdAt: timeAgo(result.createdAt)
+					local: result && result.customFields && result.customFields.local
 				};
 			}
 		}));
@@ -103,7 +108,7 @@ Template.directory.events({
 
 Template.directory.onCreated(function() {
 	this.searchText = new ReactiveVar('');
-	this.searchType = new ReactiveVar('channels');
+	this.searchType = new ReactiveVar('users');
 	this.searchSortBy = new ReactiveVar('name');
 	this.sortDirection = new ReactiveVar('asc');
 	this.page = new ReactiveVar(0);
