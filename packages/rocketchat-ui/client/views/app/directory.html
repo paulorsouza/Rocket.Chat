@@ -1,20 +1,13 @@
 <template name="directory">
 	<section class="rc-directory">
 		{{# header sectionName="Directory" hideHelp=true}}
-		<div class="rc-directory-header">
-		<select class="rc-input__element rc-directory-selector js-typeSelector" name="type">
-				<option value="users">Usuarios</option>
-				<option value="channels">Canais</option>
-			</select>
-			<div class="rc-input rc-input--small rc-directory-search">
-				<label class="rc-input__label">
-					<div class="rc-input__wrapper">
-						{{> icon icon="magnifier" block="rc-input__icon" }}
-						<input type="text" class="rc-input__element rc-input__element--small js-search" name="message-search" id="message-search" placeholder="Search Messages" autocomplete="off">
-					</div>
-				</label>
-			</div>
-			<button class="rc-button rc-button--small rc-button--primary rc-directory-plus">{{> icon icon="plus" }}</button>
+		<div class="rc-input rc-input--small">
+			<label class="rc-input__label">
+				<div class="rc-input__wrapper">
+					{{> icon icon="magnifier" block="rc-input__icon" }}
+					<input type="text" class="rc-input__element rc-input__element--small js-search" name="message-search" id="message-search" placeholder="Procurar usuários por nome ou local" autocomplete="off">
+				</div>
+			</label>
 		</div>
 		{{/header}}
 		<div class="rc-directory-content">

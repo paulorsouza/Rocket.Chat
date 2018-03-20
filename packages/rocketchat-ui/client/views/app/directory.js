@@ -33,7 +33,9 @@ function directorySearch(config, cb) {
 				return {
 					name: result.name,
 					username: result.username,
-					local: result && result.customFields && result.customFields.local
+					local: result.customFields && result.customFields.local,
+					ramal: result.customFields && result.customFields.ramal,
+					email: result.customFields && result.customFields.email
 				};
 			}
 		}));
